@@ -1,0 +1,55 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+  <!-- main background panel -->
+  <rect
+    x="4"
+    y="4"
+    width="16"
+    height="16"
+    rx="3"
+    fill="#c7d2fe"
+    stroke="#4080ff"
+    stroke-width="1.5"
+  />
+
+  <!-- grid lines — vertical -->
+  <path
+    d="M8 4v16M12 4v16M16 4v16"
+    stroke="#4080ff"
+    stroke-width="0.4"
+    opacity="0.2"
+  />
+
+  <!-- grid lines — horizontal -->
+  <path
+    d="M4 8h16M4 12h16M4 16h16"
+    stroke="#4080ff"
+    stroke-width="0.4"
+    opacity="0.2"
+  />
+
+  <!-- growth line -->
+  <path
+    d="M6 17l4-4 3 1 5-7"
+    stroke="#4080ff"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- arrow head -->
+  <path
+    d="M15 7h2v2"
+    stroke="#4080ff"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+</svg>

@@ -1,0 +1,103 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+  <!-- depth layer 1 — dashed, furthest back -->
+  <rect
+    x="1"
+    y="3.5"
+    width="19"
+    height="13"
+    rx="2"
+    stroke="#4080ff"
+    stroke-width="1"
+    stroke-dasharray="1.2 1"
+    opacity="0.3"
+  />
+
+  <!-- depth layer 2 — dashed, middle -->
+  <rect
+    x="2.5"
+    y="2"
+    width="19"
+    height="13"
+    rx="2"
+    stroke="#4080ff"
+    stroke-width="1"
+    stroke-dasharray="1 1.2"
+    opacity="0.18"
+  />
+
+  <!-- main card body -->
+  <rect
+    x="3"
+    y="5"
+    width="19"
+    height="13"
+    rx="2"
+    fill="#c7d2fe"
+    stroke="#4080ff"
+    stroke-width="1.5"
+  />
+
+  <!-- top-left chip -->
+  <rect
+    x="5"
+    y="7.5"
+    width="4"
+    height="3"
+    rx="0.8"
+    fill="#c7d2fe"
+    stroke="#4080ff"
+    stroke-width="1.2"
+    opacity="0.85"
+  />
+
+  <!-- bottom-right accent dot -->
+  <rect
+    x="17"
+    y="14"
+    width="3"
+    height="2"
+    rx="0.8"
+    fill="#4080ff"
+    opacity="0.4"
+  />
+
+  <!-- currency badge circle -->
+  <circle
+    cx="14.5"
+    cy="11.5"
+    r="4"
+    fill="#4080ff"
+  />
+
+  <!-- ₹ symbol via paths — two horizontal bars + vertical stem -->
+  <!-- top bar -->
+  <path
+    d="M13 9.8h3"
+    stroke="#c7d2fe"
+    stroke-width="1.1"
+    stroke-linecap="round"
+  />
+  <!-- mid bar -->
+  <path
+    d="M13 11h3"
+    stroke="#c7d2fe"
+    stroke-width="1.1"
+    stroke-linecap="round"
+  />
+  <!-- vertical stem + diagonal -->
+  <path
+    d="M13.8 9.8v3.4M13.8 11l2.2 2.2"
+    stroke="#c7d2fe"
+    stroke-width="1.1"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+</svg>

@@ -1,0 +1,114 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+>
+
+  <!-- shadow / depth layer -->
+  <rect
+    x="4.5"
+    y="4"
+    width="16"
+    height="18"
+    rx="2"
+    fill="#c7d2fe"
+    stroke="#4080ff"
+    stroke-width="1.5"
+    opacity="0.45"
+  />
+
+  <!-- main clipboard body -->
+  <rect
+    x="3"
+    y="3"
+    width="16"
+    height="18"
+    rx="2"
+    fill="#c7d2fe"
+    stroke="#4080ff"
+    stroke-width="1.5"
+  />
+
+  <!-- clip tab -->
+  <rect
+    x="7.5"
+    y="1.5"
+    width="7"
+    height="3.5"
+    rx="1.2"
+    fill="#4080ff"
+  />
+
+  <!-- tab window -->
+  <rect
+    x="8.5"
+    y="2"
+    width="5"
+    height="2"
+    rx="0.8"
+    fill="#c7d2fe"
+  />
+
+  <!-- divider line -->
+  <path
+    d="M5 8h12"
+    stroke="#4080ff"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    opacity="0.25"
+  />
+
+  <!-- text line 1 — bold/heading -->
+  <rect
+    x="5"
+    y="10.5"
+    width="8"
+    height="1.8"
+    rx="0.9"
+    fill="#4080ff"
+    opacity="0.55"
+  />
+
+  <!-- text line 2 -->
+  <rect
+    x="5"
+    y="13.2"
+    width="10"
+    height="1.4"
+    rx="0.7"
+    fill="#4080ff"
+    opacity="0.25"
+  />
+
+  <!-- text line 3 -->
+  <rect
+    x="5"
+    y="15.6"
+    width="9"
+    height="1.4"
+    rx="0.7"
+    fill="#4080ff"
+    opacity="0.25"
+  />
+
+  <!-- check badge circle -->
+  <circle
+    cx="17"
+    cy="18.5"
+    r="3.5"
+    fill="#4080ff"
+  />
+
+  <!-- checkmark -->
+  <path
+    d="M15.2 18.5l1.3 1.3 2.5-2.5"
+    stroke="#c7d2fe"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+</svg>

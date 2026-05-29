@@ -1,0 +1,606 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+
+  <!-- Chart -->
+  <symbol id="icon-chart" viewBox="0 0 24 24">
+    <path
+      d="M5 20V10M12 20V4M19 20v-6"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-width="2"
+      fill="none"
+    />
+  </symbol>
+
+  <!-- Folder -->
+  <symbol id="icon-folder" viewBox="0 0 24 24">
+    <path
+      d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+      stroke="currentColor"
+      stroke-linejoin="round"
+      stroke-width="2"
+      fill="none"
+    />
+  </symbol>
+
+  <!-- Bank -->
+  <symbol id="icon-bank" viewBox="0 0 24 24">
+    <path
+      d="m3 10 9-6 9 6"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      fill="none"
+    />
+    <path
+      d="M5 10v8M10 10v8M14 10v8M19 10v8"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="none"
+    />
+    <path
+      d="M3 20h18"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-width="2"
+      fill="none"
+    />
+  </symbol>
+
+  <!-- Card -->
+  <symbol id="icon-card" viewBox="0 0 24 24">
+    <rect
+      width="18"
+      height="14"
+      x="3"
+      y="5"
+      rx="2"
+      stroke="currentColor"
+      stroke-width="2"
+      fill="none"
+    />
+    <path
+      d="M3 10h18"
+      stroke="currentColor"
+      stroke-width="2"
+    />
+    <path
+      d="M7 15h3"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-width="2"
+    />
+  </symbol>
+
+  <!-- Grid -->
+  <symbol id="icon-grid" viewBox="0 0 24 24">
+    <rect width="6" height="6" x="3" y="3" rx="1.5"
+      stroke="currentColor" stroke-width="2" fill="none"/>
+    <rect width="6" height="6" x="15" y="3" rx="1.5"
+      stroke="currentColor" stroke-width="2" fill="none"/>
+    <rect width="6" height="6" x="15" y="15" rx="1.5"
+      stroke="currentColor" stroke-width="2" fill="none"/>
+    <path
+      d="M9 6h6M18 9v6"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-width="2"
+      fill="none"
+    />
+  </symbol>
+  
+  
+  <!-- Left arrow -->
+  
+  <symbol id="icon-arrow" viewBox="0 0 24 24">
+  <path
+      d="M3 12H20"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+  
+  <path
+    d="M16 9L20 12L16 15"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</symbol>
+
+
+<!-- right-arrow -->
+
+<symbol id="icon-arrow-right" viewBox="0 0 24 24">
+  <path
+    d="M4 12H20"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+
+  <path
+    d="M8 9L4 12L8 15"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</symbol>
+
+  <!-- Play -->
+  
+  <symbol id="icon-play" viewBox="0 0 24 24">
+  <circle
+    cx="12"
+    cy="12"
+    r="10"
+    stroke="currentColor"
+    stroke-width="2"
+    fill="none"
+  />
+  <path
+    d="M10 8L16 12L10 16V8Z"
+    fill="currentColor"
+  />
+</symbol>
+
+ <!-- Shield -->
+
+<symbol id="icon-shield" viewBox="0 0 24 24">
+  <path
+    d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</symbol>
+
+ <!-- Lock -->
+
+<symbol id="icon-lock" viewBox="0 0 24 24">
+  <rect
+    width="18"
+    height="11"
+    x="3"
+    y="11"
+    rx="2"
+    ry="2"
+    stroke="currentColor"
+    stroke-width="2.5"
+    fill="none"
+  />
+  <path
+    d="M7 11V7a5 5 0 0 1 10 0v4"
+    stroke="currentColor"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</symbol>
+
+<!-- folder line -->
+
+<symbol id="icon-folder-lines" viewBox="0 0 24 24">
+  <path
+    d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <path
+    d="M8 11h8M8 15h5"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    fill="none"
+  />
+</symbol>
+
+<!-- clock -->
+
+<symbol id="icon-clock" viewBox="0 0 24 24">
+  <circle
+    cx="12"
+    cy="13"
+    r="8"
+    stroke="currentColor"
+    stroke-width="2"
+    fill="none"
+  />
+  <path
+    d="m12 13 3.5-2.5M9 3h6"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    fill="none"
+  />
+</symbol>
+
+<!-- Risk -->
+
+<symbol id="icon-warning" viewBox="0 0 24 24">
+  <path
+    d="m12 4 9 15H3z"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <path
+    d="M12 10v4"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <circle
+    cx="12"
+    cy="17"
+    r="1"
+    fill="currentColor"
+  />
+</symbol>
+
+<!-- Gear -->
+
+<!-- Gear / Settings — blue + ink-5 theme — clean final version -->
+<symbol id="icon-gear-premium" viewBox="0 0 24 24">
+  <!-- tooth top -->
+  <rect x="10.5" y="2" width="3" height="3" rx="0.5"
+    fill="var(--accent-data)" />
+  <!-- tooth bottom -->
+  <rect x="10.5" y="19" width="3" height="3" rx="0.5"
+    fill="var(--accent-data)" />
+  <!-- tooth left -->
+  <rect x="2" y="10.5" width="3" height="3" rx="0.5"
+    fill="var(--accent-data)" />
+  <!-- tooth right -->
+  <rect x="19" y="10.5" width="3" height="3" rx="0.5"
+    fill="var(--accent-data)" />
+  <!-- tooth top-left -->
+  <rect x="4.5" y="4.5" width="3" height="3" rx="0.5"
+    transform="rotate(45 6 6)"
+    fill="var(--accent-data)" />
+  <!-- tooth top-right -->
+  <rect x="16.5" y="4.5" width="3" height="3" rx="0.5"
+    transform="rotate(45 18 6)"
+    fill="var(--accent-data)" />
+  <!-- tooth bottom-left -->
+  <rect x="4.5" y="16.5" width="3" height="3" rx="0.5"
+    transform="rotate(45 6 18)"
+    fill="var(--accent-data)" />
+  <!-- tooth bottom-right -->
+  <rect x="16.5" y="16.5" width="3" height="3" rx="0.5"
+    transform="rotate(45 18 18)"
+    fill="var(--accent-data)" />
+  <!-- main body circle -->
+  <circle
+    cx="12"
+    cy="12"
+    r="7"
+    fill="var(--surface-tag)"
+    stroke="var(--accent-data)"
+    stroke-width="1.5"
+  />
+  <!-- inner hub -->
+  <circle
+    cx="12"
+    cy="12"
+    r="3"
+    fill="var(--accent-data)"
+  />
+  <!-- center bore -->
+  <circle
+    cx="12"
+    cy="12"
+    r="1.5"
+    fill="var(--surface-tag)"
+  />
+</symbol>
+
+
+<!-- target -links -->
+
+<symbol id="icon-target-rings" viewBox="0 0 680 680">
+
+  <g transform="translate(340 340)">
+
+    <!-- Outer rings -->
+    <circle
+      r="250"
+      fill="none"
+      stroke="var(--surface-tag)"
+      stroke-width="18"
+    />
+
+    <circle
+      r="180"
+      fill="none"
+      stroke="var(--surface-tag)"
+      stroke-width="18"
+    />
+
+    <!-- Main blue focus ring -->
+    <circle
+      r="115"
+      fill="none"
+      stroke="var(--accent-primary)"
+      stroke-width="28"
+    />
+
+    <!-- Thick blue cross -->
+    <path
+      d="M-300 0h210M90 0h210M0-300v210M0 90v210"
+      fill="none"
+      stroke="var(--accent-primary)"
+      stroke-width="24"
+      stroke-linecap="round"
+    />
+
+    <!-- Center -->
+    <circle
+      r="34"
+      fill="var(--surface-tag)"
+    />
+
+    <circle
+      r="18"
+      fill="var(--accent-primary)"
+    />
+
+  </g>
+
+</symbol>
+
+
+<!-- bell -->
+
+
+<symbol id="icon-alert-bell" viewBox="0 0 24 24">
+  <!-- bell body -->
+  <path
+    d="M12 2a1 1 0 0 1 1 1v1.07A7 7 0 0 1 19 11v3l1.707 1.707A1 1 0 0 1 20 17.5H4a1 1 0 0 1-.707-1.793L5 14v-3a7 7 0 0 1 6-6.93V3a1 1 0 0 1 1-1z"
+    fill="var(--surface-tag)"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+  <!-- clapper -->
+  <path
+    d="M10 18a2 2 0 0 0 4 0"
+    fill="none"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linecap="round"
+  />
+  <!-- notification dot -->
+  <circle cx="17.5" cy="5.5" r="3" fill="var(--accent-primary)" />
+  <circle cx="17.5" cy="5.5" r="1.5" fill="var(--surface-tag)" />
+</symbol>
+
+
+
+<!-- Clipboard / Report -->
+
+<symbol id="icon-clipboard" viewBox="0 0 24 24">
+  <!-- clipboard body -->
+  <rect
+    x="5"
+    y="4"
+    width="14"
+    height="17"
+    rx="2"
+    fill="var(--surface-tag)"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+  <!-- top clip tab -->
+  <path
+    d="M9 4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2H9V4z"
+    fill="var(--accent-primary)"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+  <!-- text lines -->
+  <path
+    d="M9 12h6M9 16h4"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linecap="round"
+  />
+</symbol>
+
+
+<!-- Bar Chart  -->
+
+
+<symbol id="icon-bar-chart" viewBox="0 0 24 24">
+  <!-- background panel -->
+  <rect
+    x="2"
+    y="3"
+    width="20"
+    height="18"
+    rx="2"
+    fill="var(--surface-tag)"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+  <!-- bar 1 — short, left -->
+  <rect
+    x="5"
+    y="13"
+    width="3"
+    height="5"
+    rx="1"
+    fill="var(--accent-primary)"
+  />
+  <!-- bar 2 — tall, middle -->
+  <rect
+    x="10.5"
+    y="8"
+    width="3"
+    height="10"
+    rx="1"
+    fill="var(--accent-primary)"
+  />
+  <!-- bar 3 — medium, right -->
+  <rect
+    x="16"
+    y="11"
+    width="3"
+    height="7"
+    rx="1"
+    fill="var(--accent-primary)"
+  />
+</symbol>
+
+<!-- Cash Flow / Money -->
+
+<symbol id="icon-cash-flow" viewBox="0 0 24 24">
+  <!-- bill body -->
+  <rect
+    x="2"
+    y="6"
+    width="20"
+    height="13"
+    rx="2"
+    fill="var(--surface-tag)"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+  <!-- coin circle — center -->
+  <circle
+    cx="12"
+    cy="12"
+    r="3"
+    fill="var(--accent-primary)"
+  />
+  <!-- coin inner ring -->
+  <circle
+    cx="12"
+    cy="12"
+    r="1.5"
+    fill="var(--surface-tag)"
+  />
+  <!-- left oval detail -->
+  <ellipse
+    cx="5"
+    cy="12"
+    rx="1.5"
+    ry="2"
+    fill="var(--accent-primary)"
+    opacity="0.4"
+  />
+  <!-- right oval detail -->
+  <ellipse
+    cx="19"
+    cy="12"
+    rx="1.5"
+    ry="2"
+    fill="var(--accent-primary)"
+    opacity="0.4"
+  />
+  <!-- arrow — outflow indicator -->
+  <path
+    d="M15 3.5L18 6M18 6L15 6M18 6L18 3"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</symbol>
+
+<!-- Security / Lock -->
+<symbol id="icon-lock-secure" viewBox="0 0 24 24">
+  <!-- lock body -->
+  <rect
+    x="4"
+    y="11"
+    width="16"
+    height="11"
+    rx="2"
+    fill="var(--surface-tag)"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+  />
+  <!-- shackle -->
+  <path
+    d="M8 11V7a4 4 0 0 1 8 0v4"
+    fill="none"
+    stroke="var(--accent-primary)"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- keyhole outer circle -->
+  <circle
+    cx="12"
+    cy="16"
+    r="2.5"
+    fill="var(--accent-primary)"
+  />
+  <!-- keyhole inner dot -->
+  <circle
+    cx="12"
+    cy="16"
+    r="1"
+    fill="var(--surface-tag)"
+  />
+  <!-- keyhole stem -->
+  <path
+    d="M12 17.5v2"
+    stroke="var(--surface-tag)"
+    stroke-width="1.5"
+    stroke-linecap="round"
+  />
+  <!-- shield tick — top right badge -->
+  <circle
+    cx="18"
+    cy="5"
+    r="3"
+    fill="var(--accent-primary)"
+  />
+  <path
+    d="M16.5 5l1 1.2 2-2"
+    stroke="var(--surface-tag)"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+</symbol>
+
+
+<!-- arrow up -->
+
+ <symbol
+    id="icon-arrow-up"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="var(--surface-elevated)"
+    stroke-width="2"
+    stroke-linecap="round"
+	stroke-linejoin="round"
+  >
+     <!-- long vertical line -->
+    <path d="M12 21V4"></path>
+
+    <!-- small arrow angle -->
+    <path d="M8.5 8.5L12 5L15.5 8.5"></path>
+  </symbol>
+
+</svg>
