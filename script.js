@@ -643,6 +643,7 @@ if (isIndexPage) {
       timestamp: new Date().toISOString(),
     };
 
+console.log(formdata); 
     try {
       const response = await fetch(SHEET_URL, {
         method: "POST",
