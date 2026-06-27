@@ -1415,6 +1415,43 @@ nav {
   font-size: var(--fs-micro);
 }
 
+.bk-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-12);
+  padding: var(--sp-16) var(--sp-32);
+  color: var(--text-secondary);
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+
+  transition:
+    transform var(--dur-normal) var(--ease-spring),
+    background var(--dur-normal) var(--ease-standard),
+    box-shadow var(--dur-normal) var(--ease-standard);
+}
+.intent-capture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: var(--sp-12);
+  padding: var(--sp-32) var(--sp-24);
+  background: var(--surface-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+}
+.intent-capture p {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5em;
+  font-style: normal;
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+  letter-spacing: var(--ls-normal);
+  line-height: var(--lh-title);
+}
 /* =========================
    Story bar (below grid)
 ========================= */
