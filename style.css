@@ -4206,6 +4206,7 @@ footer {
     padding-left: 0;
     padding-top: var(--sp-8);
     text-align: center;
+    z-index: 1;
   }
 
   .fr-root {
@@ -4254,7 +4255,7 @@ footer {
   }
 
   .sec-subline {
-    margin-top: var(--sp-4);
+    margin-top: var(--sp-8);
   }
 
   .db-section,
@@ -4535,7 +4536,9 @@ footer {
   .pr-faq-grid {
     grid-template-columns: 1fr;
   }
-
+  .pr-faq-grid {
+    margin-top: var(--sp-40);
+  }
   .pr-grid {
     gap: var(--sp-32);
   }
@@ -4745,11 +4748,14 @@ footer {
     padding: 0 0 var(--sp-60, 3.75rem);
   }
 
-  footer {
-    padding: var(--sp-40) var(--sp-16) var(--sp-20);
-  }
   .cta-1 {
     width: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .cta-section span.sec-subline {
+    margin-top: var(--sp-24);
   }
 }
 
@@ -5162,7 +5168,7 @@ footer {
 }
 @media (max-width: 420px) {
   .cta-form-wrap {
-    padding: var(--sp-32) var(--sp-12);
+    padding: var(--sp-32) var(--sp-24);
   }
   .db-titlebar {
     flex-wrap: wrap;
