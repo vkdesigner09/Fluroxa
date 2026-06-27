@@ -1,5 +1,8 @@
 const isIndexPage = document.getElementById("demoForm") !== null;
 const isThankYouPage = document.getElementById("confetti-canvas") !== null;
+const SHEET_URL =
+  "https://script.google.com/macros/s/AKfycbwU9ZvslFdpNbq-otAp5XZtBPBIpemX_ZBJGHWkWELweltjnJ5j_Vf75QI6HwxAGXSE/exec";
+// ↑ paste your Google Apps Script deployed URL here
 
 const reduceMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
@@ -93,6 +96,24 @@ navMenu?.addEventListener("keydown", (e) => {
 });
 
 window.addEventListener("scroll", updateNavScroll, { passive: true });
+// Add to scroll handler — highlight nav link matching current section
+window.addEventListener(
+  "scroll",
+  () => {
+    const sections = ["features", "pricing", "integration"];
+    const current = sections.find((id) => {
+      const el = document.getElementById(id);
+      if (!el) return false;
+      const rect = el.getBoundingClientRect();
+      return rect.top <= 100 && rect.bottom > 100;
+    });
+    document.querySelectorAll(".nav-center a").forEach((a) => {
+      a.classList.toggle("active", a.getAttribute("href") === `#${current}`);
+    });
+  },
+  { passive: true },
+);
+
 window.addEventListener("resize", () => {
   if (window.innerWidth > 768) {
     closeMobileNav();
@@ -478,7 +499,7 @@ if (isIndexPage) {
 
     document
       .getElementById("btnMonthly")
-      .setAttribute("aria-pressed", mode === "monthly" ? "true" : "false");
+      .setAttribute("aria-checked", mode === "monthly" ? "true" : "false");
 
     document
       .getElementById("btnAnnual")
@@ -486,7 +507,7 @@ if (isIndexPage) {
 
     document
       .getElementById("btnAnnual")
-      .setAttribute("aria-pressed", mode === "annual" ? "true" : "false");
+      .setAttribute("aria-checked", mode === "annual" ? "true" : "false");
   }
 
   // Default pricing state
@@ -520,17 +541,16 @@ if (isIndexPage) {
       answer.setAttribute("aria-hidden", "false");
     }
   }
-  document
-    .querySelectorAll(".pr-faq-item")
-    .forEach((btn) => btn.addEventListener("click", () => toggleFaq(btn)));
+  document.querySelectorAll(".pr-faq-q").forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleFaq(btn.closest(".pr-faq-item"));
+    }),
+  );
 
   // ─────────────────────────────────────────────
   // Form validation
   // ─────────────────────────────────────────────
-
-  const SHEET_URL =
-    "https://script.google.com/macros/s/AKfycbwU9ZvslFdpNbq-otAp5XZtBPBIpemX_ZBJGHWkWELweltjnJ5j_Vf75QI6HwxAGXSE/exec";
-  // ↑ paste your Google Apps Script deployed URL here
 
   const form = document.getElementById("demoForm");
   const submitBtn = document.getElementById("formSubmit");
@@ -556,9 +576,14 @@ if (isIndexPage) {
     let message = "";
 
     if (field.type === "email") {
-      message = "Enter a valid email address";
+      message = "Use format: name@company.com";
     } else {
-      message = "This field is required";
+      const labelText =
+        document
+          .querySelector(`label[for="${field.id}"]`)
+          ?.textContent.replace("*", "")
+          .trim() || "This field";
+      message = `${labelText} is required`;
     }
 
     if (!valid) {
@@ -609,7 +634,7 @@ if (isIndexPage) {
       "Submitting your demo request...";
 
     const formData = {
-      firstName: document.getElementById("fullName").value.trim(),
+      fullName: document.getElementById("fullName").value.trim(),
       email: document.getElementById("workEmail").value.trim(),
       company: document.getElementById("company").value.trim(),
       companySize: document.getElementById("companySize").value.trim(),
@@ -783,27 +808,124 @@ if (scrollBtn) {
 ========================================= */
 
 const checklistModal = document.getElementById("checklistModal");
-
 const openChecklistModal = document.getElementById("openChecklistModal");
-
 const closeChecklistModal = document.getElementById("closeChecklistModal");
+const continueChecklist = document.getElementById("continueChecklist");
+const step1 = document.getElementById("checklistStep1");
+const step2 = document.getElementById("checklistStep2");
 
-openChecklistModal.addEventListener("click", () => {
-  checklistModal.classList.add("active");
-});
+function resetChecklistModal() {
+  step2.classList.remove("active");
+  step1.classList.add("active");
+  const emailEl = document.getElementById("checklistEmail");
+  const errEl = document.getElementById("checklistEmailErr");
+  if (emailEl) {
+    emailEl.value = "";
+    emailEl.setAttribute("aria-invalid", "false");
+    emailEl.style.borderColor = "";
+  }
+  if (errEl) {
+    errEl.textContent = "";
+    errEl.classList.remove("show");
+  }
+}
 
-closeChecklistModal.addEventListener("click", () => {
+function closeModal() {
   checklistModal.classList.remove("active");
+  document.body.style.overflow = "";
+  resetChecklistModal();
+  openChecklistModal.focus();
+}
+
+openChecklistModal.addEventListener("click", (e) => {
+  e.preventDefault();
+  checklistModal.classList.add("active");
+  document.body.style.overflow = "hidden";
+  setTimeout(() => document.querySelector(".checklist-modal").focus(), 50);
 });
+
+closeChecklistModal.addEventListener("click", closeModal);
 
 checklistModal.addEventListener("click", (e) => {
-  if (e.target === checklistModal) {
-    checklistModal.classList.remove("active");
-  }
+  if (e.target === checklistModal) closeModal();
 });
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    checklistModal.classList.remove("active");
+  if (e.key === "Escape" && checklistModal.classList.contains("active"))
+    closeModal();
+});
+
+continueChecklist.addEventListener("click", () => {
+  step1.classList.remove("active");
+  step2.classList.add("active");
+  document.querySelector(".checklist-modal").scrollTop = 0;
+  setTimeout(() => document.getElementById("checklistEmail").focus(), 50);
+});
+
+const checklistForm = document.querySelector(".checklist-form");
+checklistForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const emailEl = document.getElementById("checklistEmail");
+  const errEl = document.getElementById("checklistEmailErr");
+  const val = emailEl.value.trim();
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!pattern.test(val)) {
+    emailEl.setAttribute("aria-invalid", "true");
+    emailEl.style.borderColor = "var(--status-danger)";
+    errEl.textContent = "Enter a valid email address";
+    errEl.classList.add("show");
+    emailEl.focus();
+    return;
+  }
+
+  const btn = checklistForm.querySelector(".modal-submit-btn");
+  btn.textContent = "Sending…";
+  btn.disabled = true;
+
+  try {
+    await fetch(SHEET_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({
+        email: val,
+        source: "checklist_modal",
+        timestamp: new Date().toISOString(),
+      }),
+    });
+  } catch (_) {}
+
+  document.querySelector(".checklist-modal-content").innerHTML = `
+    <div style="text-align:center; padding: var(--sp-40) var(--sp-24);">
+      <div style="font-size:2.5rem; margin-bottom:var(--sp-16);">✅</div>
+      <h3 style="font-family:var(--font-display); font-size:var(--fs-body-lg); font-weight:700; margin-bottom:var(--sp-8); color:var(--text-primary);">Check your inbox</h3>
+      <p style="color:var(--text-muted); font-size:var(--fs-label); line-height:var(--lh-body); margin-bottom:var(--sp-16);">
+  Checklist sent to <strong style="color:var(--text-primary);">${val}</strong>.<br>No spam — just the checklist.
+</p>
+<a href="https://drive.google.com/your-file-link"
+   target="_blank"
+   rel="noopener"
+   class="modal-submit-btn"
+   style="display:block; text-align:center; text-decoration:none; margin-bottom:var(--sp-12);">
+  ⬇ Download Checklist Now
+</a>
+      <button type="button" class="modal-submit-btn" onclick="document.getElementById('checklistModal').classList.remove('active'); document.body.style.overflow='';">Done →</button>
+    </div>`;
+});
+
+checklistModal.addEventListener("keydown", (e) => {
+  if (!checklistModal.classList.contains("active")) return;
+  if (e.key !== "Tab") return;
+  const focusable = checklistModal.querySelectorAll(
+    'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+  );
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (e.shiftKey && document.activeElement === first) {
+    e.preventDefault();
+    last.focus();
+  } else if (!e.shiftKey && document.activeElement === last) {
+    e.preventDefault();
+    first.focus();
   }
 });
