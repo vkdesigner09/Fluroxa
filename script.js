@@ -660,7 +660,7 @@ if (isIndexPage) {
       document.getElementById("form-live").textContent =
         "Demo request submitted successfully.";
 
-      window.location.href = "/thank-you.html";
+      window.location.href = "./thank-you.html";
     } catch (err) {
       submitBtn.classList.remove("loading");
 
