@@ -17,11 +17,23 @@ const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const scrollThreshold = 80;
 
+// function updateNavScroll() {
+//   if (window.scrollY > scrollThreshold) {
+//     navWrapper.classList.add("scrolled");
+//   } else {
+//     navWrapper.classList.remove("scrolled");
+//   }
+// }
+
+let navScrolled = false;
+
 function updateNavScroll() {
-  if (window.scrollY > scrollThreshold) {
-    navWrapper.classList.add("scrolled");
-  } else {
-    navWrapper.classList.remove("scrolled");
+  if (!navWrapper) return;
+  const shouldScroll = window.scrollY > scrollThreshold;
+
+  if (shouldScroll !== navScrolled) {
+    navScrolled = shouldScroll;
+    navWrapper.classList.toggle("scrolled", shouldScroll);
   }
 }
 
@@ -643,7 +655,6 @@ if (isIndexPage) {
       timestamp: new Date().toISOString(),
     };
 
-
     try {
       const response = await fetch(SHEET_URL, {
         method: "POST",
@@ -688,6 +699,7 @@ if (isIndexPage) {
       }, 5000);
 
       console.error("Form submission error:", err);
+      console.warn("Checklist fetch failed:", _);
     }
   }
 
@@ -837,66 +849,69 @@ function closeModal() {
   resetChecklistModal();
   openChecklistModal.focus();
 }
+if (checklistModal && openChecklistModal) {
+  openChecklistModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    checklistModal.classList.add("active");
+    document.body.style.overflow = "hidden";
+    checklistModal.addEventListener(
+      "transitionend",
+      function focusOnOpen() {
+        if (checklistModal.classList.contains("active")) {
+          document.querySelector(".checklist-modal").focus();
+        }
+      },
+      { once: true },
+    );
+  });
 
-openChecklistModal.addEventListener("click", (e) => {
-  e.preventDefault();
-  checklistModal.classList.add("active");
-  document.body.style.overflow = "hidden";
-  setTimeout(() => document.querySelector(".checklist-modal").focus(), 50);
-});
+  closeChecklistModal.addEventListener("click", closeModal);
 
-closeChecklistModal.addEventListener("click", closeModal);
+  checklistModal.addEventListener("click", (e) => {
+    if (e.target === checklistModal) closeModal();
+  });
 
-checklistModal.addEventListener("click", (e) => {
-  if (e.target === checklistModal) closeModal();
-});
+  continueChecklist.addEventListener("click", () => {
+    step1.classList.remove("active");
+    step2.classList.add("active");
+    document.querySelector(".checklist-modal").scrollTop = 0;
+    setTimeout(() => document.getElementById("checklistEmail").focus(), 50);
+  });
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && checklistModal.classList.contains("active"))
-    closeModal();
-});
+  const checklistForm = document.querySelector(".checklist-form");
+  checklistForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const emailEl = document.getElementById("checklistEmail");
+    const errEl = document.getElementById("checklistEmailErr");
+    const val = emailEl.value.trim();
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-continueChecklist.addEventListener("click", () => {
-  step1.classList.remove("active");
-  step2.classList.add("active");
-  document.querySelector(".checklist-modal").scrollTop = 0;
-  setTimeout(() => document.getElementById("checklistEmail").focus(), 50);
-});
+    if (!pattern.test(val)) {
+      emailEl.setAttribute("aria-invalid", "true");
+      emailEl.style.borderColor = "var(--status-danger)";
+      errEl.textContent = "Enter a valid email address";
+      errEl.classList.add("show");
+      emailEl.focus();
+      return;
+    }
 
-const checklistForm = document.querySelector(".checklist-form");
-checklistForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const emailEl = document.getElementById("checklistEmail");
-  const errEl = document.getElementById("checklistEmailErr");
-  const val = emailEl.value.trim();
-  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const btn = checklistForm.querySelector(".modal-submit-btn");
+    btn.textContent = "Sending…";
+    btn.disabled = true;
 
-  if (!pattern.test(val)) {
-    emailEl.setAttribute("aria-invalid", "true");
-    emailEl.style.borderColor = "var(--status-danger)";
-    errEl.textContent = "Enter a valid email address";
-    errEl.classList.add("show");
-    emailEl.focus();
-    return;
-  }
+    try {
+      await fetch(SHEET_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({
+          email: val,
+          source: "checklist_modal",
+          timestamp: new Date().toISOString(),
+        }),
+      });
+    } catch (_) {}
 
-  const btn = checklistForm.querySelector(".modal-submit-btn");
-  btn.textContent = "Sending…";
-  btn.disabled = true;
-
-  try {
-    await fetch(SHEET_URL, {
-      method: "POST",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({
-        email: val,
-        source: "checklist_modal",
-        timestamp: new Date().toISOString(),
-      }),
-    });
-  } catch (_) {}
-
-  document.querySelector(".checklist-modal-content").innerHTML = `
+    document.querySelector(".checklist-modal-content").innerHTML = `
     <div style="text-align:center; padding: var(--sp-40) var(--sp-24);">
       <div style="font-size:2.5rem; margin-bottom:var(--sp-16);">✅</div>
       <h3 style="font-family:var(--font-display); font-size:var(--fs-body-lg); font-weight:700; margin-bottom:var(--sp-8); color:var(--text-primary);">Check your inbox</h3>
@@ -912,21 +927,26 @@ checklistForm.addEventListener("submit", async (e) => {
 </a>
       <button type="button" class="modal-submit-btn" onclick="document.getElementById('checklistModal').classList.remove('active'); document.body.style.overflow='';">Done →</button>
     </div>`;
-});
+  });
 
-checklistModal.addEventListener("keydown", (e) => {
-  if (!checklistModal.classList.contains("active")) return;
-  if (e.key !== "Tab") return;
-  const focusable = checklistModal.querySelectorAll(
-    'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
-  );
-  const first = focusable[0];
-  const last = focusable[focusable.length - 1];
-  if (e.shiftKey && document.activeElement === first) {
-    e.preventDefault();
-    last.focus();
-  } else if (!e.shiftKey && document.activeElement === last) {
-    e.preventDefault();
-    first.focus();
-  }
+  checklistModal.addEventListener("keydown", (e) => {
+    if (!checklistModal.classList.contains("active")) return;
+    if (e.key !== "Tab") return;
+    const focusable = checklistModal.querySelectorAll(
+      'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
+}
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && checklistModal.classList.contains("active"))
+    closeModal();
 });

@@ -702,6 +702,17 @@ nav {
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* =========================================================
    HERO SUBTEXT
 ========================================================= */
@@ -4650,9 +4661,9 @@ footer {
     padding: var(--sp-16) var(--sp-24) var(--sp-24);
     box-shadow: var(--shadow-lg);
     display: grid;
-    grid-template-rows: 0fr;
+
     grid-template-columns: 1fr; /* Single column layout for mobile stack */
-    grid-template-rows: auto repeat(5, 1fr); /* 1st row for Header/X button, rest shared equally */
+
     align-items: center; /* Centers links vertically inside their grid cells */
     justify-items: center;
     transition:
@@ -4671,7 +4682,6 @@ footer {
   }
 
   .nav-menu.open {
-    grid-template-rows: 1fr;
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
@@ -5094,6 +5104,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 var(--sp-16);
+  }
+
   .hero-left {
     padding: var(--sp-96) var(--sp-16) var(--sp-32);
   }
@@ -5113,19 +5127,20 @@ footer {
   }
 
   .db-shell {
-    margin: 0;
+    margin: var(--sp-16) 0 0;
     border-width: 3px;
     border-radius: var(--radius-xs);
   }
 
-  .db-titlebar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--sp-8);
-  }
-
   .db-url {
-    margin: 0;
+    display: none;
+  }
+  .db-titlebar {
+    flex-direction: row;
+    align-items: center;
+  }
+  .ps-layout {
+    padding: var(--sp-48) 0 var(--sp-40);
   }
 
   .term-line {
@@ -5141,6 +5156,9 @@ footer {
     border: 1px solid var(--border-subtle);
     gap: var(--sp-16);
     margin-bottom: var(--sp-20);
+  }
+  .step-connector {
+    display: none;
   }
 
   .step-num-col {
@@ -5239,9 +5257,6 @@ footer {
   .fr-card {
     border-radius: var(--radius-md);
   }
-  .container {
-    padding: 0 var(--sp-24);
-  }
 }
 
 @media (max-width: 375px) {
@@ -5314,8 +5329,8 @@ footer {
   visibility: hidden;
 
   transition:
-    opacity var(--dur-med),
-    visibility var(--dur-med);
+    opacity var(--dur-med) var(--ease-standard),
+    visibility var(--dur-med) var(--ease-standard);
 
   z-index: 9999;
 }
@@ -5345,7 +5360,7 @@ footer {
   position: relative;
   z-index: 9999;
   transform: translateY(20px);
-  transition: transform var(--dur-med);
+  transition: transform var(--dur-med) var(--ease-standard);
   scrollbar-width: thin;
   scrollbar-color: var(--text-faint) transparent;
 }
