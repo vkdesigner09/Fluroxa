@@ -692,7 +692,7 @@ nav {
 
 @keyframes lineReveal {
   from {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(110%);
   }
 

@@ -422,15 +422,19 @@ if (isIndexPage) {
     ticking = false;
   }
 
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        updateActiveStep();
-      });
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateActiveStep();
+        });
 
-      ticking = true;
-    }
-  });
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
 
   updateActiveStep();
 
@@ -802,15 +806,15 @@ if (isThankYouPage) {
 
 const scrollBtn = document.getElementById("scrollToTop");
 if (scrollBtn) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > window.innerHeight) {
-      scrollBtn.classList.add("show-btn");
-      scrollBtn.classList.remove("hidden-btn");
-    } else {
-      scrollBtn.classList.add("hidden-btn");
-      scrollBtn.classList.remove("show-btn");
-    }
-  });
+  window.addEventListener(
+    "scroll",
+    () => {
+      const pastFold = window.scrollY > window.innerHeight;
+      scrollBtn.classList.toggle("show-btn", pastFold);
+      scrollBtn.classList.toggle("hidden-btn", !pastFold);
+    },
+    { passive: true },
+  );
   scrollBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
