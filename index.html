@@ -244,7 +244,12 @@
                         <div class="fr-runway">
                           <div class="fr-runway-label">Current Runway</div>
                           <div class="fr-runway-val">
-                            <span class="fr-runway-num" id="runwayNum">18</span>
+                            <span
+                              class="fr-runway-num"
+                              id="runwayNum"
+                              aria-live="off"
+                              >18</span
+                            >
                             <span class="fr-runway-unit">mo</span>
                           </div>
                           <div class="fr-runway-sub">
@@ -1653,7 +1658,7 @@
             <div class="sp-testi-grid">
               <!-- Card 1 — Close time pain → -->
               <article class="tc reveal rd1">
-                <div class="tc-stars">★★★★★</div>
+                <div class="tc-stars" aria-label="5 out of 5 stars">★★★★★</div>
                 <blockquote class="tc-quote">
                   <p>
                     "Before Fluroxa, month-end close took our team 9 days.
@@ -1676,7 +1681,7 @@
 
               <!-- Card 2 — Scattered data pain →  -->
               <article class="tc reveal rd2">
-                <div class="tc-stars">★★★★★</div>
+                <div class="tc-stars" aria-label="5 out of 5 stars">★★★★★</div>
                 <blockquote class="tc-quote">
                   <p>
                     "Three people, three versions of runway. Every board meeting
@@ -1701,7 +1706,7 @@
 
               <!-- Card 3 — CFO question pain →  -->
               <article class="tc reveal rd3">
-                <div class="tc-stars">★★★★★</div>
+                <div class="tc-stars" aria-label="5 out of 5 stars">★★★★★</div>
                 <blockquote class="tc-quote">
                   <p>
                     "CFO asked about runway impact of 4 new hires. I answered it
@@ -2385,7 +2390,15 @@
             <div class="footer-col">
               <h3 class="footer-col-title">Company</h3>
               <ul class="footer-links">
-                <li><a href="javascript:void(0);">About</a></li>
+                <li>
+                  <a
+                    href="javascript:void(0);"
+                    aria-disabled="true"
+                    tabindex="-1"
+                  >
+                    About
+                  </a>
+                </li>
                 <li>
                   <a
                     href="javascript:void(0);"
@@ -2412,9 +2425,30 @@
             <div class="footer-col">
               <h3 class="footer-col-title">Resources</h3>
               <ul class="footer-links">
-                <li><a href="javascript:void(0);">Documentation</a></li>
-                <li><a href="javascript:void(0);">Finance guides</a></li>
-                <li><a href="javascript:void(0);">Case studies</a></li>
+                <li>
+                  <a
+                    href="javascript:void(0);"
+                    aria-disabled="true"
+                    tabindex="-1"
+                    >Documentation</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0);"
+                    aria-disabled="true"
+                    tabindex="-1"
+                    >Finance guides</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="javascript:void(0);"
+                    aria-disabled="true"
+                    tabindex="-1"
+                    >Case studies</a
+                  >
+                </li>
                 <li>
                   <a
                     href="mailto:thebfactordigital@gmail.com?subject=Fluroxa%20Support%20Enquiry"
